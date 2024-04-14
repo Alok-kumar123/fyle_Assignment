@@ -1,25 +1,26 @@
+/* General styles */
 body {
     margin: 0;
     padding: 0;
-    background-color:white;  
+    background-color: white;
 }
 
 .outer-container {
     width: 100%;
-    height: 100vh;
-    background-color: whitesmoke;  
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    min-height: 100vh;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0.5cm 1cm;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-  
-  .navbar {
+
+.navbar {
     background-color: gray;
     width: 100%;
     padding: 20px 0;
-    position: relative;  
+    position: relative;
 }
 
 .navbar::before,
@@ -31,8 +32,8 @@ body {
     width: 12px;
     height: 12px;
     background-color: rgb(85, 85, 85);
-    border-radius: 50%;  
-    transform: translateY(-50%); 
+    border-radius: 50%;
+    transform: translateY(-50%);
 }
 
 .navbar::before {
@@ -48,12 +49,12 @@ body {
 }
 
 .rectangular-box {
-    width: calc(100% - 20cm);  
-    height: calc(100% - 1cm);  
+    width: calc(100% - 20cm);
+    min-height: calc(100% - 1cm);
     background-color: white;
-    border: 2px solid black;  
-    border-radius: 10px; 
-    margin-top: 3cm;  
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 3cm;
     margin-bottom: 3cm;
 }
 
@@ -65,31 +66,30 @@ body {
     text-align: center;
     text-decoration: none;
     display: flex;
-    justify-content: center;  
-    align-items: center;  
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     border-radius: 4px;
-    width: calc(100% - 5px);  
-    height: 38px; 
-    margin-top: 20px;  
-    margin-left: auto; 
-    margin-right: auto;  
+    width: calc(100% - 5px);
+    height: 38px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
- 
 /* Modal container */
 .modal-container {
     display: none;
     position: fixed;
     z-index: 999;
-    left: 55%; /* Center horizontally */
-    top: 50%; /* Center vertically */
-    transform: translate(-50%, -50%); /* Center the modal */
-    background-color: white; /* Semi-transparent background */
-    width: 800px; /* Set width */
-    height: 300px;
-    max-width: 80%; /* Set maximum width */
-    border: 2px solid black; /* Add solid black border */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid black;
     border-radius: 10px;
 }
 
@@ -97,21 +97,39 @@ body {
 .modal-content {
     padding: 20px;
     position: relative;
-    text-align: center; /* Center the content */
+    text-align: center;
 }
- 
- /* Close button */
+
+/* Close button */
 .close-btn {
     position: absolute;
-    bottom: -100px;  
-    left: 50%;  
-    transform: translateX(-50%);  
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 16px;
     color: white;
-    background-color: #6a5acd;  
+    background-color: #6a5acd;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
 }
 
+/* Media queries */
+@media screen and (max-width: 768px) {
+    .rectangular-box {
+        width: calc(100% - 2rem);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .rectangular-box {
+        width: calc(100% - 1rem);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .submit-btn {
+        width: calc(100% - 10px);
+    }
+}
